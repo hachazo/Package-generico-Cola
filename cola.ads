@@ -33,5 +33,8 @@ generic
 
       end record;
       
-
+--package Colainc is new Cola(tipopila1);
+  -- use colainc; 
+   --cola:tipocola(1); <-- Tipocola definido el adb ads
+   
 end cola;
