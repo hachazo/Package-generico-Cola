@@ -3,9 +3,13 @@ generic
    type tipodato is private;
 
    package cola is
+	  
+	  type tipoCola(max: positive) is private;
+	  Overflow, Underflow: exception;
       
-      type tipoCola(max: positive) is limited private;
-      
+      procedure clear(cola: in out tipocola);
+	  --Limpila los elementos de la cola
+
       function Is_Empty(cola : tipocola) return Boolean;
       --chaquea si la cola esta vacia
       
@@ -17,9 +21,7 @@ generic
       
       procedure delete(cola : in out tipocola; Item: out tipodato);
       --Elimina el primer elemento de la cola
-      
-      function Front(cola : tipocola) return tipodato;
-      --Devuelve el elemento de la cola sin ser eliminado
+
       private
       
       type Arreglocola is array(Positive range <>) of tipodato;
@@ -33,8 +35,5 @@ generic
 
       end record;
       
---package Colainc is new Cola(tipopila1);
-  -- use colainc; 
-   --cola:tipocola(1); <-- Tipocola definido el adb ads
-   
+
 end cola;

@@ -1,6 +1,15 @@
 package body Cola is
    
-
+   --Limpia los elementos de la cola   
+   procedure clear(Cola: in out Tipocola) is
+  
+   begin
+  
+      Cola.Frente:= cola.max;
+      Cola.Final:= cola.max;
+   
+   end Limpiar;
+   
    --chequea si la cola esta vacia
    function Is_Empty(Cola: Tipocola) return Boolean is
    
@@ -31,50 +40,26 @@ package body Cola is
    procedure Insert(Item: in Tipodato; Cola: in out Tipocola) is
    
    begin
-      
-      if Is_Full(Cola) then raise Overflow; 
-      else Cola.Final := Cola.Final rem Cola.Max + 1; --Rem resto de una division entera
-      Cola.Elemento(Cola.Final) := Item; -- primero se resuelve el resto y despues la suma
-      end if; 
-      
+   
+      if Is_Full(Cola) then raise Overflow;
+	  else
+      Cola.Final := Cola.final rem cola.max+1; 
+	  Cola.Elemento(Cola.Final):= item;
+      end if;
       end insert;
    
    --Elimina el primer elemento de la cola
    procedure Delete(Cola: in out Tipocola; Item: out tipodato) is
    
    begin
-      
-      if Is_Empty(Cola) then raise Underflow; 
-      else Cola.Frente:= Cola.Frente rem Cola.Max + 1; 
-      Item:= Cola.Elemento(Cola.Frente);
+   
+   if Is_empty(Cola) then raise Underflow;
+         else Cola.Frente:= Cola.Frente rem cola.max + 1;
+         item:= cola.elemento(cola.frente);
       end if;
-      
+	  
    end Delete;
    
-   --Devuelve el primer elemento de la cola sin eliminarlo
-   function Front (Cola: Tipocola) return Tipodato is
    
-   begin
-      
-      if not Is_Empty(cola) then
-         return cola.elemento(cola.frente);
-      else
-        raise Underflow;
-      end if;
-     
-   end Front;
-   
-exception
-   
-     when Underflow =>
-      begin
-      Put_Line("LA COLA ESTA VACIA"); end;
-         
-      when Overflow => 
-      begin
-      Put_Line("LA COLA ESTA LLENA");
-      end;
-         
-  
 end cola;
 
