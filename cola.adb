@@ -41,7 +41,8 @@ package body Cola is
    
    begin
    
-      if Is_Full(Cola) then raise Overflow;
+      if Is_Full(Cola) then 
+	  raise Overflow;
 	  else
       Cola.Final := Cola.final rem cola.max+1; 
 	  Cola.Elemento(Cola.Final):= item;
