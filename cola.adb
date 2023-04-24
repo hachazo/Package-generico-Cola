@@ -8,7 +8,7 @@ package body Cola is
       Cola.Frente:= cola.max;
       Cola.Final:= cola.max;
    
-   end Limpiar;
+   end clear;
    
    --chequea si la cola esta vacia
    function Is_Empty(Cola: Tipocola) return Boolean is
