@@ -41,3 +41,4 @@ end cola;
 -- use colainc;
 -- subtype colain is tipocola(6); --siempre se deja 1 de mas.
 -- cola:colain;
+--for I in 1.. Cola.Max-1 loop ejemplo de uso
